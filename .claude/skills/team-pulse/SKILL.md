@@ -103,83 +103,75 @@ Render order depends on `defaults.group_by` from `.claude/team.yaml`:
 - `person` — only the "By Person" section
 - `both`   — both, repo first (default)
 
+**Audience: clients and non-technical stakeholders.** The digest is meant to be pasted directly into a client email / Notion / Slack — so the **Summary** and **Highlights** sections must be plain-language English. Translate Conventional Commit subjects (`feat(auth): add OAuth PKCE handler`) into outcomes a non-engineer understands (`Login via Google is now wired up`). Keep raw SHAs and Conventional Commit subjects only in the bottom "Commit Trail" section for technical reference.
+
 Template:
 ```markdown
-# Team Pulse — <Weekly|Daily> · <YYYY-MM-DD> to <YYYY-MM-DD>
+# Weekly Progress — <Mon DD> – <Mon DD>, <YYYY>
 
-_Generated <today>. Repos scanned: <N>. Members tracked: <M>._
+_Project: <repo or product name> · Reporting period: <Weekday, Mon DD> → <Weekday, Mon DD>, <YYYY>_
 
-## Headline numbers
-- Commits: **<total>** across <N> repos
-- PRs opened: **<n>** · merged: **<n>** · open: **<n>**
-- Reviews given: **<total>**
+## Summary
 
----
+<2–4 sentences in plain English describing what the team accomplished this week and why it matters. No jargon, no Conventional Commit syntax, no SHAs. Frame as outcomes ("login is now wired up", "payment retries are handled correctly") not implementation details ("added handleOAuthCallback function"). A non-technical client should be able to read this paragraph and understand the value delivered.>
 
-## By Repo
+## Highlights
 
-### `softaims/frontend-app`
-**Total: 18 commits · 4 PRs (3 merged, 1 open) · 6 reviews**
+<3–6 bullets. Each bullet: **bolded short headline.** then one plain-English sentence about the user-facing or business-facing impact. Translate technical work into outcomes:>
 
-| Person | Commits | PRs opened | PRs reviewed |
+- **<Plain headline>.** <One-sentence outcome in plain language.>
+- **Login via Google is now live.** Customers can sign in with their Google account instead of creating a separate password.
+- **Payment retries handle network blips.** If Stripe times out, the system now retries automatically instead of failing the order.
+- **Faster product search.** Search results now appear in under 200ms (previously 1.5s on average).
+
+## Team
+
+| Member | Commits | Pull Requests Opened | Reviews Given |
 | --- | --- | --- | --- |
-| Alice Khan (`alice-dev`)   | 12 | 3 (🟢 2 · 🟡 1) | 2 |
-| Bob Singh (`bob-py`)       |  4 | 1 (🟢 1)        | 3 |
-| Chi Wang (`chi-ai`)        |  2 | 0               | 1 |
+| <Full Name> (`<github-login>`) | <n> | <n> (🟢 <merged> · 🟡 <open>) | <n> |
+| ...                            |     |                              |    |
 
-Highlights:
-- `a3f1b22` feat(auth): add OAuth callback handler — _alice-dev_
-- 🟢 #482 — Add OAuth login flow — _alice-dev_
-- 🟢 #488 — Add request logging middleware — _bob-py_
+_(If multiple repos, add one row per member with a per-repo breakdown in parentheses, e.g. "12 (frontend-app: 9, backend-api: 3)".)_
 
----
+## Key Updates
 
-### `softaims/backend-api`
-**Total: 9 commits · 2 PRs (2 merged) · 3 reviews**
+<Meta-notes the client or lead should know. Window adjustments, anomalies, anyone quiet, anything redacted, what changed in workflow. Plain language.>
 
-| Person | Commits | PRs opened | PRs reviewed |
-| --- | --- | --- | --- |
-| Bob Singh (`bob-py`)       |  7 | 2 (🟢 2) | 1 |
-| Alice Khan (`alice-dev`)   |  2 | 0        | 2 |
+- <Window adjustment, if any. E.g. "The default reporting window had zero activity, so this report covers <date range> instead.">
+- <Quiet members, if any roster-based. E.g. "Alice was on PTO this week — no contributions expected.">
+- <Redactions, if any. E.g. "Two API-key-like strings in commit messages were redacted before this report was generated.">
+- <Notable shifts. E.g. "No pull requests this week — all changes went directly to main during the bootstrap phase. PR-based review will resume next week.">
 
-Highlights:
-- `f1c9e08` fix(payments): handle stripe timeout retry — _bob-py_
-- 🟢 #112 — Add idempotency keys to checkout — _bob-py_
+## Commit Trail (technical reference)
 
----
+<For the engineering reader. Raw SHAs + Conventional Commit subjects, grouped by repo if multiple.>
 
-_(repeat one section per repo)_
+- `<sha7>` — <conventional commit subject> — _<github-login>_
+- ...
 
----
-
-## By Person
-
-### Alice Khan (`alice-dev`) — frontend
-**Commits (14)** across 2 repos
-- `frontend-app` (12): `a3f1b22` feat(auth): add OAuth..., `d8e0c14` fix(form): null-check..., _+ 10 more_
-- `backend-api` (2):  `9a44e1c` chore(api): bump shared types
-
-**PRs opened (3)**
-- 🟢 #482 — Add OAuth login flow (frontend-app)
-- 🟡 #491 — Refactor Button component variants (frontend-app)
-- 🟢 #495 — Fix address null safety (frontend-app)
-
-**PRs reviewed (4)** — frontend-app (2), backend-api (2)
-
----
-
-### Bob Singh (`bob-py`) — backend
-...
-
----
-
-## Quiet this week
-- _no one — everyone shipped 🎉_  OR  _Daniyal (`daniyal-x`) — no commits or PRs in window_
-
-## Footer
-- Redacted <N> potential secrets from commit messages / PR titles
-- Run again: `team-pulse weekly` or `team-pulse since 2026-05-15`
+_(If multiple repos, group under `### <owner>/<repo>` subheadings.)_
 ```
+
+**Plain-language translation cheatsheet** (apply when drafting Summary + Highlights):
+
+| Conventional commit type | Plain-language framing |
+| --- | --- |
+| `feat(...)` adding a user-visible feature | "<Feature> is now live / available / wired up" |
+| `feat(...)` adding internal infra | "Behind-the-scenes setup for <capability> is in place" |
+| `fix(...)` user-facing bug | "<Symptom> no longer happens" |
+| `fix(...)` developer-facing bug | "An issue that was affecting <area> internally has been resolved" |
+| `perf(...)` | "<Operation> is now faster — <metric if known>" |
+| `refactor(...)` | "Code in <area> was reorganized to make future changes safer/faster — no user-visible change" |
+| `chore`/`build`/`ci` | Usually skip from Highlights unless it has business impact; mention in Key Updates if foundational |
+| `docs` | "Documentation for <area> was updated" — skip unless the docs are client-facing |
+| `test` | Skip from Highlights; mention in Key Updates only if it unlocks something visible |
+
+**Hard rules for the client-facing sections:**
+- No SHAs in Summary or Highlights.
+- No `feat:` / `fix:` prefixes or scope parentheses in Summary or Highlights.
+- No file paths, function names, or class names in Summary or Highlights.
+- If a commit's plain-language outcome is genuinely "internal plumbing with no client value", omit it from Highlights — it still appears in the Commit Trail.
+- Keep paragraphs short. Aim for the Summary to be readable in under 20 seconds.
 
 ### 7. Report
 Print to the user:
