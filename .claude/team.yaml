@@ -13,12 +13,12 @@
 #   - softaims/frontend-app
 #   - git@github.com:softaims/frontend-app.git
 repos:
-  # - https://github.com/softaims/frontend-app
+  - https://github.com/Softaims/claude-code-boilerplate
   # - https://github.com/softaims/backend-api
   # - https://github.com/softaims/ai-engine
 
 # ─── DEFAULTS ────────────────────────────────────────────────────────────────
 defaults:
-  window: weekly              # weekly | daily
+  window: weekly # weekly | daily
   output_dir: docs/team-pulse # where the markdown digest gets saved
-  group_by: repo              # repo | person | both
+  group_by: repo # repo | person | both
