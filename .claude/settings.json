@@ -7,6 +7,10 @@
         "hooks": [
           {
             "type": "command",
+            "command": "bash .claude/hooks/git-safety-gate.sh"
+          },
+          {
+            "type": "command",
             "command": "bash .claude/hooks/pre-commit-gate.sh"
           }
         ]
