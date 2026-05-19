@@ -50,6 +50,30 @@ Based on the staged diff content (not file names alone):
 - **Subject:** imperative, ≤ 50 chars, no trailing period
 - **Body:** only if the *why* isn't obvious from the subject. Wrap at 72 chars.
 
+**Specificity rule — write like a human, not a changelog bot.** The subject must (a) name the concrete artifact and (b) read like something a teammate would actually type. These commits feed weekly digests ([[team-pulse]]) and `git log --grep` searches, so they must be self-contained — readable months later with zero diff context.
+
+The two-question test before accepting a subject:
+1. **Greppable?** If I search for the feature name in six months, will this commit show up?
+2. **Digest-ready?** If this line appears in a weekly summary by itself, will a reader understand what shipped?
+
+If either answer is no, rewrite.
+
+- ❌ `chore(team-pulse): add config template` — vague; "template" of what?
+- ✅ `chore(team-pulse): add team.yaml with repo list and weekly defaults`
+- ❌ `feat(auth): update login flow` — update what?
+- ✅ `feat(auth): add OAuth PKCE redirect handler for Google SSO`
+- ❌ `fix(api): handle edge case`
+- ✅ `fix(api): guard /users endpoint against empty cursor param`
+- ❌ `chore: misc tweaks`
+- ✅ `chore(frontend-ui): drop unused Button variants and inline styles`
+
+Rules:
+- Name the concrete artifact from the diff in the subject: filename, function, route, flag, config key, table.
+- Avoid bare verbs (`update`, `tweak`, `improve`, `refactor`, `misc`) without a direct object.
+- Write in natural language a teammate would type — full nouns, no robotic shorthand like "config update".
+- If the subject is approaching 50 chars and forcing brevity kills clarity, spill the detail into a one-line body instead of truncating.
+- Acronyms, identifiers, and feature names from the diff are gold for future grep and digests — surface them.
+
 Match the repo's existing commit style from `git log -5 --oneline`.
 
 ### 4. Confirmation gate

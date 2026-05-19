@@ -1,0 +1,24 @@
+# team-pulse config
+# Skill: .claude/skills/team-pulse/SKILL.md
+#
+# Paste your GitHub repo URLs below. The skill pulls last week's commits
+# per repo and groups by commit author (auto-detected from commit metadata).
+#
+# Run: team-pulse weekly  (or  daily / since 2026-05-12)
+
+# ─── REPOS ───────────────────────────────────────────────────────────────────
+# Accepted formats (mix and match — the skill normalizes them):
+#   - https://github.com/softaims/frontend-app
+#   - github.com/softaims/frontend-app
+#   - softaims/frontend-app
+#   - git@github.com:softaims/frontend-app.git
+repos:
+  # - https://github.com/softaims/frontend-app
+  # - https://github.com/softaims/backend-api
+  # - https://github.com/softaims/ai-engine
+
+# ─── DEFAULTS ────────────────────────────────────────────────────────────────
+defaults:
+  window: weekly              # weekly | daily
+  output_dir: docs/team-pulse # where the markdown digest gets saved
+  group_by: repo              # repo | person | both
