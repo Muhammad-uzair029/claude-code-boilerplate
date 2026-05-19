@@ -44,8 +44,42 @@ block() {
   BLOCKED_REASON+="  - $1"$'\n'
 }
 
-# Normalize whitespace so `git  push   --force` is caught.
-NORM="$(printf '%s' "$COMMAND" | tr -s '[:space:]' ' ')"
+# Strip heredoc bodies (<<TAG ... TAG, optionally with - or quoted tag).
+# Prevents false positives when a destructive pattern appears inside a
+# commit message body or other quoted content.
+CMD_NO_HEREDOC="$(printf '%s\n' "$COMMAND" | awk '
+  in_hd {
+    line = $0
+    gsub(/^[ \t]+|[ \t]+$/, "", line)
+    if (line == tag) { in_hd = 0; tag = ""; next }
+    next
+  }
+  {
+    line = $0
+    if ((idx = index(line, "<<")) > 0) {
+      tail = substr(line, idx + 2)
+      if (substr(tail, 1, 1) == "-") tail = substr(tail, 2)
+      qc = substr(tail, 1, 1)
+      if (qc == "\047" || qc == "\"") tail = substr(tail, 2)
+      t = ""
+      for (i = 1; i <= length(tail); i++) {
+        c = substr(tail, i, 1)
+        if (c ~ /[A-Za-z0-9_]/) t = t c
+        else break
+      }
+      if (t != "") {
+        tag = t
+        in_hd = 1
+        line = substr(line, 1, idx - 1)
+      }
+    }
+    print line
+  }
+')"
+
+# Collapse whitespace and strip quoted strings so a destructive pattern
+# inside a commit message ("-m '... rm -rf .git ...'") is ignored.
+NORM="$(printf '%s' "$CMD_NO_HEREDOC" | tr -s '[:space:]' ' ' | sed -E "s/'[^']*'//g; s/\"[^\"]*\"//g")"
 
 # ── FORCE PUSH ────────────────────────────────────────────────────────────────
 if echo "$NORM" | grep -Eq '(^|[^A-Za-z0-9_])git +push\b.*(--force\b|--force-with-lease\b| -f($| ))'; then
