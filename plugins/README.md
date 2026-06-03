@@ -25,6 +25,7 @@ plugins/
 | `security-scan` | Staged-diff secrets + dep vuln scan |
 | `system-design` | Cross-stack design audit (RN ↔ NestJS ↔ Python AI) |
 | `team-pulse` | Daily/weekly team activity digest |
+| `pentesting` | Adversarial red-team attack-surface analysis + report |
 
 ## Install for the team
 

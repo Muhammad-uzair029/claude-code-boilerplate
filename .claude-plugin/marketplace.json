@@ -66,6 +66,12 @@
       "description": "Aggregates daily/weekly team activity (commits, PRs, reviews) into a markdown digest under docs/team-pulse/.",
       "source": "./plugins/team-pulse",
       "category": "productivity"
+    },
+    {
+      "name": "pentesting",
+      "description": "Adversarial red-team pen-tester. Open-ended attack-surface analysis. Dispatches parallel recon agents, writes a structured red-team report, optionally applies fixes.",
+      "source": "./plugins/pentesting",
+      "category": "security"
     }
   ]
 }
