@@ -1,0 +1,11 @@
+{
+  "name": "security-scan",
+  "version": "0.1.0",
+  "description": "Scans staged diff for hardcoded secrets, credentials, API keys, and known-vulnerable dependencies. Blocks commits that contain secrets and warns on dep vulnerabilities.",
+  "author": {
+    "name": "softaims",
+    "url": "https://github.com/Softaims"
+  },
+  "keywords": ["security", "secrets", "pre-commit", "dependency-audit"],
+  "category": "security"
+}

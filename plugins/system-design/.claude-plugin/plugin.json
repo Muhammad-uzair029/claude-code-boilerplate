@@ -1,0 +1,11 @@
+{
+  "name": "system-design",
+  "version": "0.1.0",
+  "description": "End-to-end system design auditor for projects spanning a React Native client, a NestJS backend, and a Python AI service. Audits cross-service contracts, race conditions, concurrency, performance budgets, production readiness, and UI/UX modularity.",
+  "author": {
+    "name": "softaims",
+    "url": "https://github.com/Softaims"
+  },
+  "keywords": ["architecture", "design-review", "race-conditions", "production-readiness"],
+  "category": "architecture"
+}

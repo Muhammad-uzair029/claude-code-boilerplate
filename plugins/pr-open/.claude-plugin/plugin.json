@@ -1,0 +1,11 @@
+{
+  "name": "pr-open",
+  "version": "0.1.0",
+  "description": "Creates a GitHub pull request from the current branch — auto-fills title, summary, and test-plan checklist from the diff against the base branch. Pushes the branch if needed, then opens the PR via `gh pr create`.",
+  "author": {
+    "name": "softaims",
+    "url": "https://github.com/Softaims"
+  },
+  "keywords": ["github", "pull-request", "gh", "automation"],
+  "category": "git"
+}

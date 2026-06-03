@@ -1,0 +1,77 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "softaims-boilerplate",
+  "description": "softaims internal plugin marketplace — each skill from the claude-code-boilerplate repo wrapped as a standalone, installable plugin.",
+  "owner": {
+    "name": "softaims",
+    "url": "https://github.com/Softaims"
+  },
+  "plugins": [
+    {
+      "name": "generate-docs",
+      "description": "Analyzes recent git changes or specific files to write feature documentation under docs/features/.",
+      "source": "./plugins/generate-docs",
+      "category": "productivity"
+    },
+    {
+      "name": "git-push",
+      "description": "Reviews staged files, writes a Conventional Commit message, confirms with you, then commits and pushes only what is staged.",
+      "source": "./plugins/git-push",
+      "category": "git"
+    },
+    {
+      "name": "null-safety-scan",
+      "description": "Strict null/undefined/None safety audit on staged TS/JS/Python files.",
+      "source": "./plugins/null-safety-scan",
+      "category": "code-quality"
+    },
+    {
+      "name": "pr-open",
+      "description": "Opens a GitHub PR from the current branch — auto-fills title, summary, and test-plan checklist from the diff.",
+      "source": "./plugins/pr-open",
+      "category": "git"
+    },
+    {
+      "name": "pre-merge-check",
+      "description": "Runs lint + typecheck + tests in parallel and blocks on failure (TS/JS + Python).",
+      "source": "./plugins/pre-merge-check",
+      "category": "code-quality"
+    },
+    {
+      "name": "react-native-optimization-and-architecture",
+      "description": "React Native + Expo performance and architecture best practices.",
+      "source": "./plugins/react-native-optimization-and-architecture",
+      "category": "mobile"
+    },
+    {
+      "name": "security-audit",
+      "description": "42-rule OWASP Top 10 gate + single-rule deep-dives + API mask audit + full pen-test report. Output masked, paper-trail in docs/security/.",
+      "source": "./plugins/security-audit",
+      "category": "security"
+    },
+    {
+      "name": "security-scan",
+      "description": "Scans staged diff for hardcoded secrets and known-vulnerable dependencies.",
+      "source": "./plugins/security-scan",
+      "category": "security"
+    },
+    {
+      "name": "system-design",
+      "description": "End-to-end design auditor across React Native client, NestJS backend, and Python AI service.",
+      "source": "./plugins/system-design",
+      "category": "architecture"
+    },
+    {
+      "name": "team-pulse",
+      "description": "Aggregates daily/weekly team activity (commits, PRs, reviews) into a markdown digest under docs/team-pulse/.",
+      "source": "./plugins/team-pulse",
+      "category": "productivity"
+    },
+    {
+      "name": "pentesting",
+      "description": "Adversarial red-team pen-tester. Open-ended attack-surface analysis. Dispatches parallel recon agents, writes a structured red-team report, optionally applies fixes.",
+      "source": "./plugins/pentesting",
+      "category": "security"
+    }
+  ]
+}
