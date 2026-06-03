@@ -1,0 +1,11 @@
+{
+  "name": "null-safety-scan",
+  "version": "0.1.0",
+  "description": "Strict null/undefined/None safety audit on staged TS/JS/Python files. Flags unguarded property access, missing optional chaining, unchecked function returns, unsafe array/dict access, and missing defaults.",
+  "author": {
+    "name": "softaims",
+    "url": "https://github.com/Softaims"
+  },
+  "keywords": ["safety", "static-analysis", "typescript", "python", "pre-commit"],
+  "category": "code-quality"
+}

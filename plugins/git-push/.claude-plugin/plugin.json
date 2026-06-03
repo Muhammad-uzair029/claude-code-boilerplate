@@ -1,0 +1,11 @@
+{
+  "name": "git-push",
+  "version": "0.1.0",
+  "description": "Reviews staged files for edge cases and null-safety issues, generates a Conventional Commit message from the diff, asks for confirmation, then commits and pushes ONLY the already-staged files.",
+  "author": {
+    "name": "softaims",
+    "url": "https://github.com/Softaims"
+  },
+  "keywords": ["git", "commit", "push", "conventional-commits"],
+  "category": "git"
+}

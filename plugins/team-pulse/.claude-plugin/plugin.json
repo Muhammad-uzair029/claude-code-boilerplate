@@ -1,0 +1,11 @@
+{
+  "name": "team-pulse",
+  "version": "0.1.0",
+  "description": "Aggregates daily or weekly engineering activity across the team — commits, PRs opened/merged, reviews — from a configured list of repos and team members. Outputs a markdown digest to docs/team-pulse/.",
+  "author": {
+    "name": "softaims",
+    "url": "https://github.com/Softaims"
+  },
+  "keywords": ["team", "activity", "digest", "github", "reporting"],
+  "category": "productivity"
+}

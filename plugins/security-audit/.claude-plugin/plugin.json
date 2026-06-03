@@ -1,0 +1,11 @@
+{
+  "name": "security-audit",
+  "version": "0.1.0",
+  "description": "In-house pen-tester. Four modes — quick 42-rule OWASP Top 10 gate, single-rule deep-dive, API response over-sharing audit, and full pen-test report. Output is masked before persisting; paper trail kept in docs/security/.",
+  "author": {
+    "name": "softaims",
+    "url": "https://github.com/Softaims"
+  },
+  "keywords": ["security", "owasp", "pen-test", "audit", "compliance"],
+  "category": "security"
+}

@@ -1,0 +1,11 @@
+{
+  "name": "pre-merge-check",
+  "version": "0.1.0",
+  "description": "Runs lint + typecheck + tests in parallel across the project and blocks if any fail. Works with TS/JS (eslint + tsc + jest/vitest) and Python (ruff + mypy + pytest).",
+  "author": {
+    "name": "softaims",
+    "url": "https://github.com/Softaims"
+  },
+  "keywords": ["lint", "typecheck", "tests", "pre-merge", "ci"],
+  "category": "code-quality"
+}
