@@ -72,6 +72,72 @@
       "description": "Adversarial red-team pen-tester. Open-ended attack-surface analysis. Dispatches parallel recon agents, writes a structured red-team report, optionally applies fixes.",
       "source": "./plugins/pentesting",
       "category": "security"
+    },
+    {
+      "name": "feature-review",
+      "description": "Team-lead-grade evaluator for a feature shipped by another engineer. Produces a merge verdict grounded in a regression-risk map, approach critique, better-approach proposals, and a specific test-plan gap list.",
+      "source": "./plugins/feature-review",
+      "category": "code-quality"
+    },
+    {
+      "name": "contract-drift-check",
+      "description": "Detects schema drift across the three workspaces of this monorepo. Enforces the CLAUDE.md rule 'type contracts at boundaries'.",
+      "source": "./plugins/contract-drift-check",
+      "category": "architecture"
+    },
+    {
+      "name": "dependency-hygiene",
+      "description": "Audits third-party deps for unused packages, duplicate versions, peer-dep conflicts, license drift, and outdated critical libraries (TS/JS + Python).",
+      "source": "./plugins/dependency-hygiene",
+      "category": "code-quality"
+    },
+    {
+      "name": "test-coverage-delta",
+      "description": "Runs coverage against the base branch and reports only the newly-added uncovered lines (jest / vitest / pytest-cov).",
+      "source": "./plugins/test-coverage-delta",
+      "category": "code-quality"
+    },
+    {
+      "name": "complexity-check",
+      "description": "Enforces per-function and per-file complexity ceilings — cyclomatic, cognitive, function length, file length, params, nesting depth.",
+      "source": "./plugins/complexity-check",
+      "category": "code-quality"
+    },
+    {
+      "name": "migration-safety",
+      "description": "Audits DB migrations (Prisma / TypeORM / Knex / Alembic / raw SQL) for production-time hazards — irreversible drops, backfills under concurrent writes, long-locking index builds.",
+      "source": "./plugins/migration-safety",
+      "category": "architecture"
+    },
+    {
+      "name": "adr-writer",
+      "description": "Guided Architecture Decision Record writer. Enforces context / decision / consequences / alternatives on one page under docs/adr/NNNN-<slug>.md.",
+      "source": "./plugins/adr-writer",
+      "category": "architecture"
+    },
+    {
+      "name": "perf-budget",
+      "description": "Tracks and enforces performance budgets over time — bundle size, API p95, RN startup / JS-thread time. Baselines under docs/perf/baseline.json.",
+      "source": "./plugins/perf-budget",
+      "category": "code-quality"
+    },
+    {
+      "name": "dead-code-scan",
+      "description": "Finds unused exports, unreachable branches, and orphan files (TS/JS + Python). Complementary to dependency-hygiene.",
+      "source": "./plugins/dead-code-scan",
+      "category": "code-quality"
+    },
+    {
+      "name": "api-mock-parity",
+      "description": "Keeps client mock fixtures (MSW / Storybook / JSON) in sync with backend OpenAPI / DTOs / pydantic schemas.",
+      "source": "./plugins/api-mock-parity",
+      "category": "code-quality"
+    },
+    {
+      "name": "feature-audit",
+      "description": "One-command evening feature auditor. Fans out to every relevant review skill in parallel and synthesizes ONE report with ONE merge verdict. The lead's nightly ritual.",
+      "source": "./plugins/feature-audit",
+      "category": "code-quality"
     }
   ]
 }

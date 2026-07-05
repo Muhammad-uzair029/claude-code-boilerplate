@@ -1,0 +1,11 @@
+{
+  "name": "api-mock-parity",
+  "version": "0.1.0",
+  "description": "Keeps client-side mock fixtures in sync with the real backend response shape. Diffs MSW / Storybook / fixture JSON against OpenAPI / DTOs / pydantic schemas.",
+  "author": {
+    "name": "softaims",
+    "url": "https://github.com/Softaims"
+  },
+  "keywords": ["mocks", "msw", "storybook", "openapi", "contracts"],
+  "category": "code-quality"
+}

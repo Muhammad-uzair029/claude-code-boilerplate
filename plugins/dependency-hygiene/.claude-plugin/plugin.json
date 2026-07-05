@@ -1,0 +1,11 @@
+{
+  "name": "dependency-hygiene",
+  "version": "0.1.0",
+  "description": "Audits third-party dependencies across TS/JS + Python workspaces for unused packages, duplicate versions, peer-dep conflicts, license drift, and outdated critical libraries.",
+  "author": {
+    "name": "softaims",
+    "url": "https://github.com/Softaims"
+  },
+  "keywords": ["dependencies", "hygiene", "unused", "peer-deps", "license"],
+  "category": "code-quality"
+}

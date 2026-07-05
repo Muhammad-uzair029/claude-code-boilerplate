@@ -1,0 +1,11 @@
+{
+  "name": "perf-budget",
+  "version": "0.1.0",
+  "description": "Tracks and enforces performance budgets over time — frontend bundle size, backend API p95 latency, React Native startup / JS-thread time. Baselines under docs/perf/baseline.json; blocks regressions beyond tolerance.",
+  "author": {
+    "name": "softaims",
+    "url": "https://github.com/Softaims"
+  },
+  "keywords": ["performance", "budget", "bundle-size", "latency", "regression"],
+  "category": "code-quality"
+}

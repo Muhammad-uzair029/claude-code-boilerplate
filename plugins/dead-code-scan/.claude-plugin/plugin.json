@@ -1,0 +1,11 @@
+{
+  "name": "dead-code-scan",
+  "version": "0.1.0",
+  "description": "Finds unused exports, unreachable branches, and orphan files across TS/JS + Python. Complementary to dependency-hygiene (external deps) — this skill targets code the team owns.",
+  "author": {
+    "name": "softaims",
+    "url": "https://github.com/Softaims"
+  },
+  "keywords": ["dead-code", "unused", "cleanup", "knip", "vulture"],
+  "category": "code-quality"
+}
