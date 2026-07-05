@@ -1,0 +1,11 @@
+{
+  "name": "contract-drift-check",
+  "version": "0.1.0",
+  "description": "Detects schema drift across frontend-ui, backend-api, and ai-engine workspaces. Enforces the CLAUDE.md rule 'type contracts at boundaries'. Flags renamed / removed / newly-required fields that only one side of the boundary knows about.",
+  "author": {
+    "name": "softaims",
+    "url": "https://github.com/Softaims"
+  },
+  "keywords": ["contracts", "schema", "monorepo", "boundaries", "drift"],
+  "category": "architecture"
+}

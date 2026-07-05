@@ -201,6 +201,44 @@ CI is intentionally not wired — this is a Claude-only repo. If you ever need C
 - If a rule reports `WARN`, decide whether it's a real risk; document the decision in the PR if accepted.
 - New checks belong in `.claude/skills/security-audit/scripts/NN-<slug>.sh`. Update the rule table in this file and in the skill's `SKILL.md`. If the rule maps to an OWASP category, update `severity_of` / `owasp_of` in `pen-test-report.sh`.
 
+## Quality & Architecture Gates (new skill pack)
+
+Ten skills sit alongside the security stack. They are the lead's daily audit tool — invoke by name, no CI required.
+
+### Code-quality lane
+| Skill                  | Purpose                                                                                       |
+| ---------------------- | --------------------------------------------------------------------------------------------- |
+| `feature-review`       | Merge verdict + regression-risk map + approach critique for a PR / branch / feature name.      |
+| `test-coverage-delta`  | New-lines-only coverage report vs base branch.                                                 |
+| `complexity-check`     | Cyclomatic / cognitive / length / nesting ceilings per function + file.                        |
+| `dead-code-scan`       | Unused exports, unreachable branches, orphan files.                                            |
+| `dependency-hygiene`   | Unused / duplicate / outdated / license-risky third-party deps.                                |
+| `perf-budget`          | Bundle-size, API p95, RN startup budgets baselined under `docs/perf/`.                         |
+| `api-mock-parity`      | MSW / Storybook / JSON fixtures kept in sync with OpenAPI / DTO / pydantic schemas.             |
+
+### Architecture lane
+| Skill                  | Purpose                                                                                       |
+| ---------------------- | --------------------------------------------------------------------------------------------- |
+| `contract-drift-check` | Cross-workspace schema drift (frontend-ui ↔ backend-api ↔ ai-engine).                          |
+| `migration-safety`     | DB migration hazards (Prisma / TypeORM / Knex / Alembic / raw SQL).                            |
+| `adr-writer`           | Guided one-page Architecture Decision Records under `docs/adr/`.                               |
+
+### Umbrella orchestrator — the evening ritual
+
+- **`feature-audit <PR#|branch|feature-name>`** — one command. Fans out to every relevant sub-skill in parallel (feature-review, security-audit, null-safety-scan, complexity-check, test-coverage-delta, contract-drift-check, api-mock-parity, migration-safety, perf-budget, dead-code-scan, system-design, dependency-hygiene), synthesizes ONE report with ONE verdict under `docs/reviews/feature-audit-<date>-<slug>.md`.
+- **`feature-audit --since 24h`** — batch mode for the nightly sweep. One digest row per feature merged today, aggregate rollup at the bottom. This is what the lead pastes into Slack at 7pm.
+
+### When the lead runs what (finer-grained)
+
+- **Every PR (junior work):** `feature-audit <PR#>` (or `feature-review <PR#>` for a lighter run).
+- **PR touches shared types / OpenAPI / DTOs:** `contract-drift-check` + `api-mock-parity` (auto-selected by `feature-audit`).
+- **PR touches `migrations/` / `prisma/schema.prisma`:** `migration-safety` (auto).
+- **PR adds a new lib / architecture pattern:** `adr-writer` (nudge, does not auto-write).
+- **PR touches hot paths / bundles:** `perf-budget` (auto).
+- **Weekly hygiene sweep:** `dead-code-scan` + `dependency-hygiene` (also auto if deps changed).
+
+Each skill writes a paper trail under `docs/<domain>/` so the lead has an audit history without opening the terminal each time.
+
 ## Cache Discipline
 
 This file lives at the top of the context window — it must stay stable to preserve prompt-cache hits across turns. Volatile workspace details belong in the per-app `CLAUDE.md` under `apps/<workspace>/`. Edit those for local concerns; edit this only for repo-wide policy.

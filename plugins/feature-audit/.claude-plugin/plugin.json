@@ -1,0 +1,11 @@
+{
+  "name": "feature-audit",
+  "version": "0.1.0",
+  "description": "One-command evening feature auditor. Fans out to every relevant review skill in parallel (feature-review, security-audit, contract-drift-check, complexity-check, test-coverage-delta, migration-safety, api-mock-parity, perf-budget, dead-code-scan, null-safety-scan, system-design, dependency-hygiene) and synthesizes ONE report with ONE merge verdict.",
+  "author": {
+    "name": "softaims",
+    "url": "https://github.com/Softaims"
+  },
+  "keywords": ["feature-review", "audit", "orchestrator", "nightly", "team-lead"],
+  "category": "code-quality"
+}

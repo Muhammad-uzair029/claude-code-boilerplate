@@ -1,0 +1,11 @@
+{
+  "name": "migration-safety",
+  "version": "0.1.0",
+  "description": "Audits DB migrations for production-time hazards — irreversible drops, NOT NULL on populated tables, long-locking index builds, backfills under concurrent writes, unsafe defaults. Prisma / TypeORM / Knex / Alembic / raw SQL.",
+  "author": {
+    "name": "softaims",
+    "url": "https://github.com/Softaims"
+  },
+  "keywords": ["migrations", "database", "safety", "prisma", "alembic"],
+  "category": "architecture"
+}

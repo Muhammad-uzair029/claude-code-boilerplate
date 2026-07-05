@@ -1,0 +1,11 @@
+{
+  "name": "test-coverage-delta",
+  "version": "0.1.0",
+  "description": "Runs coverage against the base branch and reports only the newly-added uncovered lines — not the full project percentage. jest / vitest / pytest-cov.",
+  "author": {
+    "name": "softaims",
+    "url": "https://github.com/Softaims"
+  },
+  "keywords": ["coverage", "testing", "delta", "pr-gate"],
+  "category": "code-quality"
+}

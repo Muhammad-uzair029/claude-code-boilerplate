@@ -1,0 +1,11 @@
+{
+  "name": "adr-writer",
+  "version": "0.1.0",
+  "description": "Guided Architecture Decision Record writer. Enforces context / decision / consequences / alternatives on one page, saved to docs/adr/NNNN-<slug>.md, indexed in docs/adr/README.md.",
+  "author": {
+    "name": "softaims",
+    "url": "https://github.com/Softaims"
+  },
+  "keywords": ["adr", "architecture", "decision-record", "docs"],
+  "category": "architecture"
+}

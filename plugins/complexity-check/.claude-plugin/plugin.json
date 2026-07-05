@@ -1,0 +1,11 @@
+{
+  "name": "complexity-check",
+  "version": "0.1.0",
+  "description": "Enforces per-function and per-file complexity ceilings — cyclomatic, cognitive, function length, file length, parameter count, nesting depth. TS/JS + Python.",
+  "author": {
+    "name": "softaims",
+    "url": "https://github.com/Softaims"
+  },
+  "keywords": ["complexity", "cyclomatic", "cognitive", "linting"],
+  "category": "code-quality"
+}

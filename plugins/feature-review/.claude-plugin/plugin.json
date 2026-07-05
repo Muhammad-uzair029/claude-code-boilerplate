@@ -1,0 +1,11 @@
+{
+  "name": "feature-review",
+  "version": "0.1.0",
+  "description": "Team-lead-grade evaluator for a feature shipped by another engineer. Produces a merge verdict grounded in a regression-risk map, approach critique, better-approach proposals, and a specific test-plan gap list. Composes pre-merge-check, security-audit, system-design, and null-safety-scan under one call.",
+  "author": {
+    "name": "softaims",
+    "url": "https://github.com/Softaims"
+  },
+  "keywords": ["code-review", "regression", "team-lead", "pr-review", "junior-review"],
+  "category": "code-quality"
+}
